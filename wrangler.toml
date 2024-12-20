@@ -5,4 +5,4 @@ build:
     - npm run build
 
 errorPages:
-  404: /error-pages/404.html
+  404: /404.html
