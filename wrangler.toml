@@ -1,0 +1,8 @@
+build:
+  base: ./
+  commands:
+    - npm install
+    - npm run build
+
+errorPages:
+  404: /error-pages/404.html
