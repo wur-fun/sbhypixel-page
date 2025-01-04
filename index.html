@@ -1,40 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
   <head>
-    <title>傻逼hypixel.net</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>傻逼嗨皮咳嗽.net</title>
+      <meta name="description" content="gexx香香软软的。">
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              background-color: #2b2b2b;
+              color: #ffffff;
+              text-align: center;
+              padding: 20px;
+          }
+          h1 {
+              color: #4caf50;
+          }
+          .server-info {
+              background-color: #333333;
+              padding: 15px;
+              border-radius: 8px;
+              display: inline-block;
+              margin: 20px 0;
+              width: 280px;
+          }
+          .server-info h2 {
+              color: #4caf50;
+          }
+          .copy-link {
+              color: #4caf50;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 10px 20px;
+              border: 2px solid #4caf50;
+              border-radius: 5px;
+              display: inline-block;
+              margin-top: 10px;
+          }
+          .copy-link:hover {
+              background-color: #4caf50;
+              color: #ffffff;
+          }
+          .features {
+              margin-top: 40px;
+          }
+          .feature {
+              margin-bottom: 20px;
+          }
+          footer {
+              margin-top: 40px;
+              color: #888888;
+          }
+          .servers-container {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              flex-wrap: wrap;
+          }
+      </style>
   </head>
   <body>
-    <pre style="word-wrap: break-word; white-space: pre-wrap;">傻逼HYPIXEL.net</pre>
-    <p>美工，前端(自愿)联系：lk1337@sbhypixel.net</p>
-    <hr>
-    <span>香港入口</span><a class="copyButton" onclick="(copyToClipboard('hypixel-1.sbhypixel.net',0))">点击复制</a>
-    <span>美国直连(主线)</span><a class="copyButton" onclick="(copyToClipboard('hypixel-2.sbhypixel.net',0))">点击复制</a>
-    <span>宁波入口(测试)</span><a class="copyButton" onclick="(copyToClipboard('hypixel-3.sbhypixel.net',0))">点击复制</a>
-    <script>
-        var notificating = false,
-            buttons = document.getElementsByClassName('copyButton');
-        function copyToClipboard(text, i) {
-            if (!notificating) {
-                if (window.clipboardData) {
-                    window.clipboardData.setData('text', text);
-                } else {
-                    (function (s) {
-                        document.oncopy = function (e) {
-                            e.clipboardData.setData('text', s);
-                            e.preventDefault();
-                            document.oncopy = null;
-                        }
-                    })(text);
-                    document.execCommand('Copy');
-                }
-                notificating = true;
-                buttons[i].className = "copyButton copied"
-                setTimeout(function () {
-                    notificating = false
-                    buttons[i].className = "copyButton"
-                }, 1500)
-            }
-        }
-    </script>
+      <h1>LK1337 Free boost</h1>
+      <p>Happy 2025!宁波入口已优化算法</p>
+
+      <div class="servers-container">
+          <!-- 香港入口 -->
+          <div class="server-info">
+              <h2>香港入口</h2>
+              <p>IP：<span id="serverIP1">hyixel-1.sbhypixel.net</span></p>
+              <a href="#" class="copy-link" id="copyLink1">点击复制</a>
+          </div>
+        
+          <!-- 美国直连 -->
+          <div class="server-info">
+              <h2>美国直连(主线)</h2>
+              <p>IP地址：<span id="serverIP2">hypixel-2.sbhypixel.net</span></p>
+              <a href="#" class="copy-link" id="copyLink2">点击复制</a>
+          </div>
+
+          <!-- 宁波入口(Beta) -->
+          <div class="server-info">
+              <h2>宁波入口</h2>
+              <p>IP地址：<span id="serverIP3">hypixel-3.sbhypixel</span></p>
+              <a href="#" class="copy-link" id="copyLink3">点击复制IP地址</a>
+          </div>
+      </div>
+
+      <div class="features">
+          <h2>平均延迟</h2>
+          <div class="feature">
+            🌍 **香港入口**: 入口延迟+186ms（端内）
+          </div>
+          <div class="feature">
+            🌍 **美国直连**: 入口延迟+54ms（端内）
+          </div>
+          <div class="feature">
+            🌍 **宁波入口**: 入口延迟+194ms（端内）
+          </div>
+          <div class="feature">
+            🏰 敬请期待。
+          </div>
+      </div>
+
+      <footer>
+          <p>©2025 LowIQKazuha Network</p>
+      </footer>
+
+      <script>
+          // 复制
+          function setupCopyButton(copyLinkId, serverIPId) {
+              const copyLink = document.getElementById(copyLinkId);
+              const serverIP = document.getElementById(serverIPId).textContent;
+
+              copyLink.addEventListener('click', function (event) {
+                  event.preventDefault();
+                  navigator.clipboard.writeText(serverIP)
+                      .then(() => {
+                          copyLink.textContent = '已复制！';
+                          copyLink.style.backgroundColor = '#4caf50';
+                          copyLink.style.color = '#ffffff';
+                      })
+                      .catch(err => {
+                          console.error('Failed to copied：', err);
+                      });
+              });
+          }
+          setupCopyButton('copyLink1', 'serverIP1');
+          setupCopyButton('copyLink2', 'serverIP2');
+          setupCopyButton('copyLink3', 'serverIP3');
+      </script>
   </body>
 </html>
