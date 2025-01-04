@@ -7,8 +7,34 @@
     <pre style="word-wrap: break-word; white-space: pre-wrap;">傻逼HYPIXEL.net</pre>
     <p>美工，前端(自愿)联系：lk1337@sbhypixel.net</p>
     <hr>
-    <p>香港入口</p><a onclick="(copyToClipboard('hypixel-1.sbhypixel.net',0))">点击复制</a>
-    <p>美国直连(主线)</p><a onclick="(copyToClipboard('hypixel-2.sbhypixel.net',0))">点击复制</a>
-    <p>宁波入口(测试)</p><a onclick="(copyToClipboard('hypixel-3.sbhypixel.net',0))">点击复制</a>
+    <span>香港入口</span><a class="copyButton" onclick="(copyToClipboard('hypixel-1.sbhypixel.net',0))">点击复制</a>
+    <span>美国直连(主线)</span><a class="copyButton" onclick="(copyToClipboard('hypixel-2.sbhypixel.net',0))">点击复制</a>
+    <span>宁波入口(测试)</span><a class="copyButton" onclick="(copyToClipboard('hypixel-3.sbhypixel.net',0))">点击复制</a>
+    <script>
+        var notificating = false,
+            buttons = document.getElementsByClassName('copyButton');
+        function copyToClipboard(text, i) {
+            if (!notificating) {
+                if (window.clipboardData) {
+                    window.clipboardData.setData('text', text);
+                } else {
+                    (function (s) {
+                        document.oncopy = function (e) {
+                            e.clipboardData.setData('text', s);
+                            e.preventDefault();
+                            document.oncopy = null;
+                        }
+                    })(text);
+                    document.execCommand('Copy');
+                }
+                notificating = true;
+                buttons[i].className = "copyButton copied"
+                setTimeout(function () {
+                    notificating = false
+                    buttons[i].className = "copyButton"
+                }, 1500)
+            }
+        }
+    </script>
   </body>
 </html>
