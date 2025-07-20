@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>sbhypixel.net</title>
+      <meta name="description" content="LK1337的Hypixel公益加速，关注永雏塔菲谢谢喵">
+      <!--NEED ENDERMAN SLAYER CARRY!!! /p Chaos_Julien for 10M Coins-->
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              background-color: #2b2b2b;
+              color: #ffffff;
+              text-align: center;
+              padding: 20px;
+          }
+          h1 {
+              color: #4caf50;
+          }
+          .server-info {
+              background-color: #333333;
+              padding: 15px;
+              border-radius: 8px;
+              display: inline-block;
+              margin: 20px 0;
+              width: 280px;
+          }
+          .server-info h2 {
+              color: #4caf50;
+          }
+          .copy-link {
+              color: #4caf50;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 10px 20px;
+              border: 2px solid #4caf50;
+              border-radius: 5px;
+              display: inline-block;
+              margin-top: 10px;
+          }
+          .copy-link:hover {
+              background-color: #4caf50;
+              color: #ffffff;
+          }
+          .outside-link {
+              color: #4caf50;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 10px 20px;
+              border: 2px solid #4caf50;
+              border-radius: 5px;
+              display: inline-block;
+              margin-top: 10px;
+          }
+          .outside-link:hover {
+              background-color: #4caf50;
+              color: #ffffff;
+          }
+          .features {
+              margin-top: 40px;
+          }
+          .feature {
+              margin-bottom: 20px;
+          }
+          footer {
+              margin-top: 40px;
+              color: #888888;
+          }
+          .servers-container {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              flex-wrap: wrap;
+          }
+      </style>
+  </head>
+  <body>
+      <h1>LK1337 Free boost</h1>
+
+      <div class="servers-container">
+          <!-- 香港入口 -->
+          <div class="server-info">
+              <h2>香港</h2>
+              <p>生产服</p>
+              <p>IP：<span id="serverIP1">sbhypixel.net</span></p>
+              <a href="#" class="copy-link" id="copyLink1">点击复制</a>
+          </div>
+          <div class="server-info">
+              <h2>香港</h2>
+              <p>测试服<p>
+              <p>IP：<span id="serverIP1">sbhypixel.net:11451</span></p>
+              <a href="#" class="copy-link" id="copyLink1">点击复制</a>
+          </div>
+          <div class="server-info">
+              <h2>这家人线路比我好</h2>
+              <p>不喜欢我的可以用他家的</p>
+              <a href="https://freeip.sbhypixel.net/xuegao123" class="outside-link">点我跑路</a>
+          </div>
+          <div class="server-info">
+              <h2>赞助</h2>
+              <p>请我吃饭</p>
+              <a href="https://freeip.sbhypixel.net/sponser" class="outside-link">投喂</a>
+          </div>
+      </div>
+
+      <div class="features">
+          <h2>公告</h2>
+          <div class="feature">
+            SKYBLOCK真傻逼 1970-1-1
+          </div>
+      </div>
+
+      <footer>
+          <p>©2025 LowIQKazuha Network</p>
+      </footer>
+
+      <script>
+          // 复制
+          function setupCopyButton(copyLinkId, serverIPId) {
+              const copyLink = document.getElementById(copyLinkId);
+              const serverIP = document.getElementById(serverIPId).textContent;
+
+              copyLink.addEventListener('click', function (event) {
+                  event.preventDefault();
+                  navigator.clipboard.writeText(serverIP)
+                      .then(() => {
+                          copyLink.textContent = '已复制！';
+                          copyLink.style.backgroundColor = '#4caf50';
+                          copyLink.style.color = '#ffffff';
+                      })
+                      .catch(err => {
+                          console.error('Failed to copied：', err);
+                      });
+              });
+          }
+          setupCopyButton('copyLink1', 'serverIP1');
+          setupCopyButton('copyLink2', 'serverIP2');
+          //setupCopyButton('copyLink3', 'serverIP3');
+      </script>
+  </body>
+</html>
